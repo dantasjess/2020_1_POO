@@ -1,17 +1,30 @@
 using System;
+
 class MainClass {
-  public static string FormatarTexto(string texto) {
-    string aux = "";
-    char ant = 'x';
-    foreach (char letra in texto) {
-      if (letra != ' ' || ant != ' ')
-        aux = aux + letra;
-      ant = letra;
+  public static void Main() {
+    string s = Console.ReadLine();
+    /*
+    s = s.Trim();
+    int p = s.IndexOf("  ");
+    while (p != -1) {
+      s = s.Remove(p, 1);
+      p = s.IndexOf("  ");
     }
-    return aux;
+    Console.WriteLine(s);
+    */
+    Console.WriteLine(FormatarTexto(s));
+
   }
-  public static void Main (string[] args) {
-    string texto = Console.ReadLine();
-    Console.WriteLine(FormatarTexto(texto));
+
+  public static string FormatarTexto(string texto)
+  {
+    string s = texto;
+    s = s.Trim();
+    int p = s.IndexOf("  ");
+    while (p != -1) {
+      s = s.Remove(p, 1);
+      p = s.IndexOf("  ");
+    }
+    return s;
   }
 }
